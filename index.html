@@ -2,32 +2,37 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Mobile Tetris Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>모바일 테트리스</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="game-container">
-        <canvas id="tetris-canvas" width="200" height="400"></canvas>
+    <div id="game-wrapper">
+        <div id="info-panel">
+            <div class="score-box">
+                점수: <span id="score">0</span>
+            </div>
+            <div class="next-box">
+                다음: <canvas id="next-canvas" width="80" height="80"></canvas>
+            </div>
+        </div>
         
-        <div id="sidebar">
-            <h2>SCORE: <span id="score">0</span></h2>
-            <h3>NEXT:</h3>
-            <canvas id="next-canvas" width="80" height="80"></canvas>
-            <button id="start-button">START GAME</button>
+        <canvas id="tetris-canvas" width="300" height="600"></canvas>
+        
+        <div id="message-overlay" class="hidden">
+            <h1>게임 오버!</h1>
+            <p>다시 시작하려면 화면을 탭하세요.</p>
         </div>
     </div>
 
     <div id="controls">
-        <button id="rotate-btn">🔄 회전</button>
-        <div id="movement-btns">
-            <button id="left-btn">◀️ 왼쪽</button>
-            <button id="right-btn">▶️ 오른쪽</button>
-        </div>
-        <button id="down-btn">⬇️ 하강</button>
+        <button id="left" ontouchstart="game.move('left')" ontouchend="game.stopMove()">◀</button>
+        <button id="rotate" ontouchstart="game.rotateBlock()">🔁</button>
+        <button id="right" ontouchstart="game.move('right')" ontouchend="game.stopMove()">▶</button>
+        <button id="down" ontouchstart="game.move('down')" ontouchend="game.stopMove()">⬇</button>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
