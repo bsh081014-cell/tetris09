@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Mobile Tetris Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <canvas id="tetris-canvas" width="200" height="400"></canvas>
+        
+        <div id="sidebar">
+            <h2>SCORE: <span id="score">0</span></h2>
+            <h3>NEXT:</h3>
+            <canvas id="next-canvas" width="80" height="80"></canvas>
+            <button id="start-button">START GAME</button>
+        </div>
+    </div>
+
+    <div id="controls">
+        <button id="rotate-btn">🔄 회전</button>
+        <div id="movement-btns">
+            <button id="left-btn">◀️ 왼쪽</button>
+            <button id="right-btn">▶️ 오른쪽</button>
+        </div>
+        <button id="down-btn">⬇️ 하강</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
